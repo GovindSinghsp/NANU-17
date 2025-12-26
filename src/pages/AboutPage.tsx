@@ -45,7 +45,7 @@ const AboutPage: React.FC = () => {
                 Our Story
               </h1>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Founded in 2015, PrimXP began with a simple vision: to create unforgettable experiences 
+                Founded in 2025, PrimXP began with a simple vision: to create unforgettable experiences 
                 that leave lasting impressions. What started as a small team of passionate event professionals 
                 has grown into a leading event management company trusted by brands across the industry.
               </p>
@@ -297,8 +297,9 @@ const AboutPage: React.FC = () => {
                 </div>
                 <h3 className="font-bold mb-2">Visit Us</h3>
                 <p className="text-white/80 text-center">
-                  123 Business Plaza<br />
-                  Mumbai, Maharashtra 400001
+                  F-56, G.Floor, K.No-890,<br />
+                  Village Fatehpur Beri,<br />
+                  ND-74. India 
                 </p>
               </div>
               
@@ -315,7 +316,7 @@ const AboutPage: React.FC = () => {
                   <Mail className="w-8 h-8 text-[#e1b382]" />
                 </div>
                 <h3 className="font-bold mb-2">Email Us</h3>
-                <p className="text-white/80">info@primxp.com</p>
+                <p className="text-white/80">pawan@primxp.com</p> 
               </div>
             </div>
             

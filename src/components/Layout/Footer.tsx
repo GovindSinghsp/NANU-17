@@ -17,21 +17,45 @@ const Footer: React.FC = () => {
               Creating unforgettable experiences through premium event management and brand experiences that leave lasting impressions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-[#e1b382] transition-colors">
+              <a
+                href="https://www.facebook.com/profile.php?id=61585759401168"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-[#e1b382] transition-colors"
+              >
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-gray-300 hover:text-[#e1b382] transition-colors">
+
+              <a
+                href="https://x.com/EventsPrim64662"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-[#e1b382] transition-colors"
+              >
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-gray-300 hover:text-[#e1b382] transition-colors">
+
+              <a
+                href="https://www.instagram.com/prim_xp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-[#e1b382] transition-colors"
+              >
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-gray-300 hover:text-[#e1b382] transition-colors">
+
+              <a
+                href="https://www.linkedin.com/in/prime-events-8520113a3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-[#e1b382] transition-colors"
+              >
                 <LinkedIn size={20} />
               </a>
+
             </div>
           </div>
-
+    
           {/* Quick Links */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-[#e1b382]">Quick Links</h3>
