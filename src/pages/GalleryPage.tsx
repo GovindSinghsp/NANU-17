@@ -16,6 +16,7 @@ const GalleryPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const [currentProjectImages, setCurrentProjectImages] = useState<string[]>([]);
 
   // Sample images for demonstration
   const sampleImages: GalleryImage[] = [
@@ -26,7 +27,11 @@ const GalleryPage: React.FC = () => {
       image_url: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg',
       category: 'corporate',
       tags: ['conference', 'corporate', 'large-scale'],
-      is_featured: true
+      is_featured: true,
+      project_image_1: 'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg',
+      project_image_2: 'https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg',
+      project_image_3: 'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg',
+      project_image_4: 'https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg'
     },
     {
       id: '2',
@@ -35,7 +40,10 @@ const GalleryPage: React.FC = () => {
       image_url: 'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg',
       category: 'product-launch',
       tags: ['product-launch', 'innovation', 'technology'],
-      is_featured: true
+      is_featured: true,
+      project_image_1: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg',
+      project_image_2: 'https://images.pexels.com/photos/2833037/pexels-photo-2833037.jpeg',
+      project_image_3: 'https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg'
     },
     {
       id: '3',
@@ -44,7 +52,9 @@ const GalleryPage: React.FC = () => {
       image_url: 'https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg',
       category: 'team-building',
       tags: ['team-building', 'workshop', 'engagement'],
-      is_featured: false
+      is_featured: false,
+      project_image_1: 'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg',
+      project_image_2: 'https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg'
     },
     {
       id: '4',
@@ -53,7 +63,12 @@ const GalleryPage: React.FC = () => {
       image_url: 'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg',
       category: 'retail',
       tags: ['retail', 'branding', 'activation'],
-      is_featured: true
+      is_featured: true,
+      project_image_1: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg',
+      project_image_2: 'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg',
+      project_image_3: 'https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg',
+      project_image_4: 'https://images.pexels.com/photos/2833037/pexels-photo-2833037.jpeg',
+      project_image_5: 'https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg'
     },
     {
       id: '5',
@@ -62,7 +77,9 @@ const GalleryPage: React.FC = () => {
       image_url: 'https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg',
       category: 'corporate',
       tags: ['dinner', 'executive', 'elegant'],
-      is_featured: false
+      is_featured: false,
+      project_image_1: 'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg',
+      project_image_2: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg'
     },
     {
       id: '6',
@@ -71,7 +88,10 @@ const GalleryPage: React.FC = () => {
       image_url: 'https://images.pexels.com/photos/2833037/pexels-photo-2833037.jpeg',
       category: 'corporate',
       tags: ['technology', 'conference', 'modern'],
-      is_featured: true
+      is_featured: true,
+      project_image_1: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg',
+      project_image_2: 'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg',
+      project_image_3: 'https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg'
     }
   ];
 
@@ -80,7 +100,7 @@ const GalleryPage: React.FC = () => {
 
   useEffect(() => {
     updatePageSEO({
-      title: 'Gallery - PrimeEvents | Event Portfolio & Past Projects',
+      title: 'Gallery - PrimXP | Event Portfolio & Past Projects',
       description: 'Explore our portfolio of successful events including corporate conferences, product launches, team meetings, and retail branding projects. See our work in action.',
       keywords: 'event portfolio, gallery, corporate events, product launches, event photography, project showcase',
       url: 'https://www.primxp.com/gallery'
@@ -110,28 +130,45 @@ const GalleryPage: React.FC = () => {
   // Get unique categories
   const categories = ['all', ...Array.from(new Set(imagesToDisplay.map(img => img.category).filter(Boolean)))];
 
+  // Helper function to get all images for a project
+  const getProjectImages = (image: GalleryImage): string[] => {
+    const images = [image.image_url];
+    
+    // Add project images if they exist
+    for (let i = 1; i <= 10; i++) {
+      const projectImage = image[`project_image_${i}` as keyof GalleryImage] as string;
+      if (projectImage) {
+        images.push(projectImage);
+      }
+    }
+    
+    return images;
+  };
+
   const openModal = (image: GalleryImage, index: number) => {
+    const projectImages = getProjectImages(image);
     setSelectedImage(image);
-    setCurrentImageIndex(index);
+    setCurrentProjectImages(projectImages);
+    setCurrentImageIndex(0); // Start with first image of the project
   };
 
   const closeModal = () => {
     setSelectedImage(null);
     setCurrentImageIndex(0);
+    setCurrentProjectImages([]);
   };
 
   const navigateImage = (direction: 'prev' | 'next') => {
-    if (!selectedImage) return;
+    if (!selectedImage || currentProjectImages.length === 0) return;
     
     let newIndex = currentImageIndex;
     if (direction === 'prev') {
-      newIndex = currentImageIndex > 0 ? currentImageIndex - 1 : filteredImages.length - 1;
+      newIndex = currentImageIndex > 0 ? currentImageIndex - 1 : currentProjectImages.length - 1;
     } else {
-      newIndex = currentImageIndex < filteredImages.length - 1 ? currentImageIndex + 1 : 0;
+      newIndex = currentImageIndex < currentProjectImages.length - 1 ? currentImageIndex + 1 : 0;
     }
     
     setCurrentImageIndex(newIndex);
-    setSelectedImage(filteredImages[newIndex]);
   };
 
   return (
@@ -320,7 +357,7 @@ const GalleryPage: React.FC = () => {
                 </button>
 
                 {/* Navigation Buttons */}
-                {filteredImages.length > 1 && (
+                {currentProjectImages.length > 1 && (
                   <>
                     <button
                       onClick={() => navigateImage('prev')}
@@ -339,7 +376,7 @@ const GalleryPage: React.FC = () => {
 
                 {/* Image */}
                 <img
-                  src={selectedImage.image_url}
+                  src={currentProjectImages[currentImageIndex]}
                   alt={selectedImage.title}
                   className="w-full h-auto max-h-screen object-contain rounded-lg"
                 />
@@ -356,9 +393,9 @@ const GalleryPage: React.FC = () => {
                         {selectedImage.category.replace('-', ' ')}
                       </span>
                     )}
-                    {filteredImages.length > 1 && (
+                    {currentProjectImages.length > 1 && (
                       <span className="text-white/70 text-sm">
-                        {currentImageIndex + 1} of {filteredImages.length}
+                        {currentImageIndex + 1} of {currentProjectImages.length}
                       </span>
                     )}
                   </div>
