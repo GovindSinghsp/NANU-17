@@ -317,7 +317,7 @@ const ContactPage: React.FC = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="PrimXP Office Location - Andheri East, Mumbai"
+                title="PrimXP Office Location - Fathepur Beri, New Delhi"
                 className="w-full h-full"
               />
               
@@ -328,9 +328,9 @@ const ContactPage: React.FC = () => {
                   <h3 className="font-bold text-[#2d545e]">PrimXP Office</h3>
                 </div>
                 <p className="text-sm text-gray-600 mb-3">
-                  123 Business Plaza<br />
-                  Andheri East, Mumbai<br />
-                  Maharashtra 400069
+                  F-56, G.Floor, K.No-890<br />
+                  Village Fatehpur Beri<br />
+                  New Delhi 110074
                 </p>
                 <a
                   href="https://maps.google.com/?q=Andheri+East+Mumbai+Maharashtra"
