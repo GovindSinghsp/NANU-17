@@ -139,7 +139,7 @@ const RecentWorkSection: React.FC = () => {
           className="text-center mt-12"
         >
           <button 
-            onClick={() => navigate('/gallery')}
+            onClick={() => navigate('/projects')}
             className="bg-[#2d545e] hover:bg-[#12343b] text-white px-8 py-4 rounded-lg font-medium transition-colors inline-flex items-center space-x-2"
           >
             <span>View All Projects</span>

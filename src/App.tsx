@@ -14,6 +14,10 @@ import EventProductionPage from './pages/services/EventProductionPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
+import ProjectsPage from './pages/ProjectsPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
+import SitemapPage from './pages/SitemapPage';
 
 function App() {
   const [isQuickContactOpen, setIsQuickContactOpen] = useState(false);
@@ -34,8 +38,12 @@ function App() {
             <Route path="/services/retail-branding" element={<RetailBrandingPage />} />
             <Route path="/services/event-production" element={<EventProductionPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/project/:id" element={<ProjectDetailPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+            <Route path="/sitemap" element={<SitemapPage />} />
           </Routes>
         </main>
 

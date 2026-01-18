@@ -72,6 +72,9 @@ const Footer: React.FC = () => {
               <Link to="/gallery" className="block text-gray-300 hover:text-[#e1b382] transition-colors">
                 Gallery
               </Link>
+              <Link to="/projects" className="block text-gray-300 hover:text-[#e1b382] transition-colors">
+                All Projects
+              </Link>
               <Link to="/contact" className="block text-gray-300 hover:text-[#e1b382] transition-colors">
                 Contact
               </Link>
@@ -132,15 +135,15 @@ const Footer: React.FC = () => {
               © {new Date().getFullYear()} PrimeEvents. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-300 hover:text-[#e1b382] transition-colors">
+              <Link to="/privacy-policy" className="text-gray-300 hover:text-[#e1b382] transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-300 hover:text-[#e1b382] transition-colors">
+              </Link>
+              <Link to="/terms-of-service" className="text-gray-300 hover:text-[#e1b382] transition-colors">
                 Terms of Service
-              </a>
-              <a href="#" className="text-gray-300 hover:text-[#e1b382] transition-colors">
+              </Link>
+              <Link to="/sitemap" className="text-gray-300 hover:text-[#e1b382] transition-colors">
                 Sitemap
-              </a>
+              </Link>
             </div>
           </div>
         </div>
